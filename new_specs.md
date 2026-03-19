@@ -29,6 +29,8 @@ Chaque carte contiendrait :
 ### Page tutoriels 
 Pour ce qui est des la page tuto, parfois les tutoriaux sont trés très longs (20 à 40 pages) il faudrait donc présenter un seul chapitre à la fois avec un menu sur la gauche qui apparaitrait et permettrait de naviguer à travers le tutoriel pour aller d’un chapitre à l’autre. En fait tout ce passerait comme si chaque chapitre etait un article de blog à part. En haut de la page tutoriel se trouve un lien "testez le projet en ligne" qui renvoit vers la page projet.
 
+Les pages de tutoriels seront generes automatiquement : la seul action a faire de la part du developpeur sera d ajouter une entree dans la table projet et d ajouter un dossier dans l arborescence qui contiendra tous les mdx pour creer le tuto.
+
 ### Page de tests des projets
 C’est pour ces pages de test que je vais tester différentes stack ! Et c’est pour ces pages de test que je vais avoir besoin de backend differents. Les différent projets seront wrappés par des framework différents à chaque fois. 
 
