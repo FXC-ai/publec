@@ -1,5 +1,5 @@
 # Utiliser une image Node.js comme base
-FROM node:18-alpine
+FROM node:20-alpine
 
 # Créer un répertoire de travail dans le conteneur
 WORKDIR /usr/src
@@ -14,10 +14,10 @@ RUN npm install
 COPY . .
 
 # Construire l'application Next.js
-RUN npm run build
+# RUN npm run build
 
 # Exposer le port utilisé par l'application Next.js
 EXPOSE 3000
 
 # Démarrer l'application
-CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
