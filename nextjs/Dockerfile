@@ -1,0 +1,23 @@
+# Utiliser une image Node.js comme base
+FROM node:18-alpine
+
+# Créer un répertoire de travail dans le conteneur
+WORKDIR /usr/src
+
+# Copier package.json and package-lock.jsondans le conteneur
+COPY package* .
+
+# Installer les dépendances
+RUN npm install
+
+# Copier le source code
+COPY . .
+
+# Construire l'application Next.js
+RUN npm run build
+
+# Exposer le port utilisé par l'application Next.js
+EXPOSE 3000
+
+# Démarrer l'application
+CMD ["npm", "start"]
