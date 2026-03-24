@@ -1,28 +1,87 @@
-
 services:
-  nginx:
-    container_name: nginx
-    image: nginx:alpine
+  traefik:
+    image: traefik:v3.6
+    container_name: traefik
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+    networks:
+     # Connect to the 'traefik_publec_network' overlay network for inter-container communication across nodes
+      - publec_network
+
     ports:
       - "80:80"
+      - "443:443"
+
     volumes:
-      - ./nginx/conf.d:/etc/nginx/conf.d
-    networks:
-      - publec-networks
-  
-  nextjs:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./certs:/certs:ro
+      - ./dynamic:/dynamic:ro
+
+    command:
+      # EntryPoints
+      - "--entrypoints.web.address=:80"
+      - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
+      - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+      - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
+      - "--entrypoints.websecure.address=:443"
+      - "--entrypoints.websecure.http.tls=true"
+
+      # Attach the static configuration tls.yaml file that contains the tls configuration settings
+      - "--providers.file.filename=/dynamic/tls.yaml"
+
+      # Providers 
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--providers.docker.network=publec_network"
+
+      # API & Dashboard 
+      - "--api.dashboard=true"
+      - "--api.insecure=true"
+
+      # Observability 
+      - "--log.level=INFO"
+      - "--accesslog=true"
+      - "--metrics.prometheus=true"
+
+    labels:
+      # Enable self‑routing
+      - "traefik.enable=true"
+
+      # Dashboard router
+      - "traefik.http.routers.dashboard.rule=Host(`dashboard.docker.localhost`)"
+      - "traefik.http.routers.dashboard.entrypoints=websecure"
+      - "traefik.http.routers.dashboard.service=api@internal"
+      - "traefik.http.routers.dashboard.tls=true"
+
+      # Basic‑auth middleware
+      # - "traefik.http.middlewares.dashboard-auth.basicauth.users=<PASTE_HASH_HERE>"
+      # - "traefik.http.routers.dashboard.middlewares=dashboard-auth@docker"
+
+  frontend-nextjs:
     build:
       context: ./frontend-nextjs
       dockerfile: Dockerfile
     container_name: frontend-nextjs
+
     ports:
       - "3000"
     volumes:
       - ./frontend-nextjs:/usr/src
       - /usr/src/node_modules
+
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`publec.localhost`)"
+      - "traefik.http.routers.whoami.entrypoints=websecure"
+      - "traefik.http.routers.whoami.tls=true"
     networks:
-      - publec-networks
+      - publec_network
 
 networks:
-  publec-networks:
-    driver: bridge
+  publec_network:
+    name: publec_network
+
+
+

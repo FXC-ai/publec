@@ -1,0 +1,28 @@
+
+services:
+  nginx:
+    container_name: nginx
+    image: nginx:alpine
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    networks:
+      - publec-networks
+  
+  nextjs:
+    build:
+      context: ./frontend-nextjs
+      dockerfile: Dockerfile
+    container_name: frontend-nextjs
+    ports:
+      - "3000"
+    volumes:
+      - ./frontend-nextjs:/usr/src
+      - /usr/src/node_modules
+    networks:
+      - publec-networks
+
+networks:
+  publec-networks:
+    driver: bridge
