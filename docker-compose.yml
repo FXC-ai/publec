@@ -59,6 +59,33 @@ services:
       # - "traefik.http.middlewares.dashboard-auth.basicauth.users=<PASTE_HASH_HERE>"
       # - "traefik.http.routers.dashboard.middlewares=dashboard-auth@docker"
 
+
+
+  backend-fastapi:
+    build:
+      context: ./backend-fastapi
+      dockerfile: Dockerfile
+    container_name: backend-fastapi
+
+    # environment:
+      # DATABASE_URL: postgresql+psycopg://neuralia:password@postgres:5432/neuralia_db
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ./backend-fastapi:/backend-fastapi
+
+    # depends_on:
+    #   postgres:
+    #     condition: service_healthy
+
+    restart: unless-stopped
+
+    networks:
+      - publec_network
+
+
   frontend-nextjs:
     build:
       context: ./frontend-nextjs
