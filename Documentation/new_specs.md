@@ -1,23 +1,24 @@
 # Portfolio laboratoire développeur publec.ch
 
-Le but de ce projet est de pouvoir tester et partager rapidement n'importe quelle stack technique. L'idée générale est d'avoir un site qui permet de tester différents backends et éventuellement différents frontends. Un serveur NginX faisant office de Reverse proxy permet de router vers différents frontends
+Le but de ce projet est de pouvoir tester et partager rapidement n'importe quelle stack technique. L'idée générale est d'avoir un site qui permet de tester différents backends et éventuellement différents frontends. Traefik est utilisé en tant que Reverse proxy. Il permet de router vers différents frontends.
 
 ## Architecture DevOps avec Docker
 
-L'architecture de la première version serait composée de containers :
-* Un container NginX qui se charge de router vers les différents frontends
-* Un container Next.js par défaut qui servira les pages du site
-* Un container FastApi qui communiquera avec la base de données
+L'architecture de la première version est composée de containers :
+* Un container Traefik qui se charge de router vers les différents frontends
+* Un container Next.js par défaut qui servira les pages statiques du site
+* Un container PgAdmon pour aider ä l'administration de la base de données
 * Un container Java avec SpringBoot qui se chargera de faire tourner le projet AvajLauncher
 
 
-## Les pages du site V1
+## Les pages statiques du site V1
 
 ### Page d'accueil :
 La page d'accueil serait une page de présentation du site basique et présenterait la liste des projets accessibles sous forme de cartes, ainsi qu'un lien vers la page contact.
 Elle contiendrait un texte de type :
-> Bienvenue dans mon laboratoire ! Ce site est espace d'expérimentations. Vous y trouverez pleins de mini projets dont le but est d'apprendre et de montrer le fonctionnement de différentes technologies. Le but est d'explorer afin de découvrir comment fonctionne quelques unes des milliers de technologies qui existent aujourd'hui.
+> Bienvenue dans mon laboratoire ! Ce site est un espace d'expérimentations. Vous y trouverez pleins de mini projets dont le but est d'apprendre et de montrer le fonctionnement de différentes technologies. Le but est d'explorer afin de découvrir comment fonctionne quelques unes des milliers de technologies qui existent aujourd'hui.
 
+### Page Projets :
 Chaque carte contiendrait :
 * une petite image,
 * le titre du projet,
@@ -25,32 +26,76 @@ Chaque carte contiendrait :
 * un lien vers le repo github qui contient le code du projet,
 * un lien vers une page tutoriel qui contiendrait un tuto pour aider les autres élèves à faire le projet,
 * et parfois un lien qui mène à une page qui permet de tester le projet directement en ligne.
+* Des tags pour lister les technologies employés pour ce projet
 
-### Page tutoriels
+#### Page tutoriels
 Pour ce qui est des la page tuto, parfois les tutoriaux sont très très longs (20 à 40 pages) il faudrait donc présenter un seul chapitre à la fois avec un menu sur la gauche qui apparaîtrait et permettrait de naviguer à travers le tutoriel pour aller d'un chapitre à l'autre. En fait tout ce passerait comme si chaque chapitre etait un article de blog à part. En haut de la page tutoriel se trouve un lien "testez le projet en ligne" qui renvoit vers la page projet.
 
 Les pages de tutoriels seront générées automatiquement : la seule action à faire de la part du développeur sera d'ajouter une entrée dans la table projet et d'ajouter un dossier dans l'arborescence qui contiendra tous les mdx pour créer le tuto.
 
-### Page de tests des projets
+#### Page de tests des projets
 C'est pour ces pages de test que je vais tester différentes stacks ! Et c'est pour ces pages de test que je vais avoir besoin de backends différents. Les différents projets seront wrappés par des frameworks différents à chaque fois.
 
-### Contact :
-Pour la page contact on y retrouvera mon CV. La page serait entièrement statique.
+### A Propos :
+On y retrouvera mon CV, mon parcours... La page serait entièrement statique.
 
+### Contact :
+Elle contient dra un formulaire pour me contacter ainsi que mes réseaux sociaux.
 
 ## Base de données
 
-Table Projets :
-- id : longint
-- Nom du projet : String
-- Ressource image : String
-- Description du projet : String
-- Lien vers la page de test : String
-- Lien vers la page projet : String
-- Lien vers le repo gitub : String
-- ligne created_at : date
-- updated_at : date
+### Table Projets
 
+| Champ | Type | Notes |
+|---|---|---|
+| id | Int | clé primaire, auto-incrémenté |
+| slug | String | unique, utilisé pour les URLs (ex: `libft`, `avajlauncher`) |
+| nom | String | titre affiché sur la carte |
+| image | String | chemin ou URL vers l'image de la carte |
+| type | String | catégorie du projet (ex: `42`, `perso`, `web`) |
+| description | String | courte description affichée sur la carte |
+| lienTest | String? | optionnel — URL vers la page de test en ligne |
+| lienTuto | String? | optionnel — URL vers la page tutoriel |
+| lienGithub | String | URL vers le repo GitHub |
+| source | String? | optionnel — chemin du dossier contenant les fichiers MDX du tuto |
+| createdAt | DateTime | date de création, auto-générée |
+| updatedAt | DateTime | date de mise à jour, auto-gérée par Prisma |
+| technologies | Relation | many-to-many vers la table Technologies (les tags) |
+
+### Table Technologies
+
+| Champ | Type | Notes |
+|---|---|---|
+| id | Int | clé primaire, auto-incrémenté |
+| nom | String | unique, nom de la technologie (ex: `Docker`, `Rust`, `Next.js`) |
+| projets | Relation | many-to-many vers la table Projets |
+
+### Relations
+
+Un projet peut utiliser plusieurs technologies, et une technologie peut apparaître dans plusieurs projets : c'est une relation **many-to-many**. Prisma gère cela automatiquement via une table de jointure implicite `_ProjetToTechnology`.
+
+
+## Liste des Technologies utilisées pour la V1
+
+### Docker
+### Traefik
+### PgAdmin
+### Next.js et React
+Ainsi que MDX et next-mdx-remote
+### Prisma
+### Postgres
+### Java + Springboot
+
+## Todo list pour mener le projet
+
+* Obtenir un VPS gratuit auprès d'infomaniak
+* Préparer l'architecture de Docker avec docker compose
+* Mettre en ligne une page d'accueil
+* Apprendre le java
+* Terminer et valider le projet AvajLauncher
+* Apprendre SpringBoot
+* Développer un frontend adapté à avajLauncher
+* Mettre en ligne avajLauncher
 
 ## Les améliorations à faire quand la V1 sera en ligne
 
@@ -138,13 +183,4 @@ techno : github actions et watchover
 
 ### Mettre en place des tests automatisés pour vérifier que le site fonctionne
 
-## Todo list pour mener le projet
 
-* Obtenir un VPS gratuit auprès d'infomaniak
-* Préparer l'architecture de Docker avec docker compose
-* Mettre en ligne une page d'accueil
-* Apprendre le java
-* Terminer et valider le projet AvajLauncher
-* Apprendre SpringBoot
-* Développer un frontend adapté à avajLauncher
-* Mettre en ligne avajLauncher

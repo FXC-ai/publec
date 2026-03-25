@@ -1,0 +1,57 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.bio h2,
+.skills h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #364AB0;
+}
+
+.bio p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #666;
+  margin-bottom: 1rem;
+}
+
+.skillGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.skillCategory {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.skillCategory h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.skillCategory ul {
+  list-style: none;
+}
+
+.skillCategory li {
+  padding: 0.5rem 0;
+  color: #666;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.skillCategory li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+   color: #364AB0;
+  font-weight: bold;
+}
