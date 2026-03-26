@@ -6,7 +6,7 @@ interface PropsTag
 }
 
 
-export default function Tag ({name} : PropsTag)
+export default function Tag ({name} : { name : string})
 {
     return (
 
@@ -14,3 +14,13 @@ export default function Tag ({name} : PropsTag)
     );
 
 }
+
+// import styles from './Tag.module.css';
+
+// export default function Tag({ children }) {
+//     return (
+//         <span className={styles.tag}>
+//             {children}
+//         </span>
+//     );
+// }

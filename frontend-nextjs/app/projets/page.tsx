@@ -1,47 +1,43 @@
-import styles from './page.module.css'
-import Tag from '../components/Tag/Tag'
 import Link from 'next/link'
+import styles from './page.module.css'
+import projectsData from '@/data/projects.json'
+import Tag from '../components/Tag/Tag'
 
 export default function Projects() {
-  return (
-    <div className="container">
-      <h1 className="title">Mes Projets</h1>
-      <p className="description">
-        Découvrez les projets sur lesquels j&apos;ai travaillé
-      </p>
-      
-      <div className={styles.grid}>
+    return (
+        <div className={styles.container}>
+            <h1 className={styles.title}>Mes Projets</h1>
+            <p className={styles.description}>
+                Découvrez les projets sur lesquels j'ai travaillé
+            </p>
 
-        <Link href="/projets/portfolio" className={styles.card}>
-          <h2>Portfolio Personnel</h2>
-          <p>Site web construit avec Next.js</p>
-          <div className={styles.tags}>
-            <Tag name={"Next.js"} />
-            <Tag name={"React"} />
-            <Tag name={"CSS Modules"} />
-          </div>
-        </Link>
-
-        <Link href="/projets/ft_linux" className={styles.card}>
-          <h2>ft_linux</h2>
-          <p>Mise en place d'un Linux From Scratch</p>
-          <div className={styles.tags}>
-            <Tag name={"Bash"}/>
-            <Tag name={"Linux"}/>
-            <Tag name={"Virtual Box"}/>
-          </div>
-        </Link>
-
-        <Link href="/projets/AvajLauncher" className={styles.card}>
-          <h2>AvajLauncher</h2>
-          <p>Simulation de communications entre aéronefs</p>
-          <div className={styles.tags}>
-            <Tag name={"JAVA"}/>
-            <Tag name={"Spring Boot"}/>
-            <Tag name={"Diagramme UML"}/>
-          </div>
-        </Link>
-      </div>
-    </div>
-  )
+            <div className={styles.grid}>
+                {projectsData.map((project) => (
+                    <Link
+                        href={`/projets/${project.slug}`}
+                        key={project.id}
+                        className={styles.card}
+                    >
+                        <div className={styles.imageWrapper}>
+                            <img 
+                                src={project.image} 
+                                alt={project.title}
+                                className={styles.image}
+                            />
+                        </div>
+                        <div className={styles.content}>
+                            <h2>{project.title}</h2>
+                            <p>{project.shortDescription}</p>
+                            <div className={styles.tags}>
+                                {project.tags.map((tech, index) => (
+                                   <Tag key={index} name={tech} />
+                                ))}
+                            </div>
+                            <span className={styles.viewMore}>Voir le projet →</span>
+                        </div>
+                    </Link>
+                ))}
+            </div>
+        </div>
+    )
 }

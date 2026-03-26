@@ -4,7 +4,7 @@ export default function Footer ()
 {
     return (
     <footer className={styles.footer}>
-      <p>© {new Date().getFullYear()} Aurélien.</p>
+      <p>© {new Date().getFullYear()} FX</p>
       <p className={styles.links}>
 
         <a href="https://github.com/aurelienec" target="_blank">
