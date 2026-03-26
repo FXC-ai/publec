@@ -2,6 +2,29 @@ import styles from "./page.module.css";
 import projectsData from "@/data/projects.json";
 import { notFound } from "next/navigation";
 
+
+export async function generateMetadata({ params } : {params : Promise<{ slug: string }>}) {
+    const { slug } = await params
+    const project = projectsData.find(p => p.slug === slug)
+
+    if (!project) {
+        return {
+            title: 'Projet non trouvé',
+        }
+    }
+
+    return {
+        title: `${project.title} | Portfolio`,
+        description: project.longDescription,
+        openGraph: {
+            title: project.title,
+            description: project.shortDescription,
+            images: [project.image],
+        },
+    }
+}
+
+
 export default async function ProjectDetail({ params } : {params : Promise<{ slug: string }>}) {
   const { slug } = await params;
 

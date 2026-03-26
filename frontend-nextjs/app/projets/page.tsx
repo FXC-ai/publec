@@ -2,8 +2,12 @@ import Link from 'next/link'
 import styles from './page.module.css'
 import projectsData from '@/data/projects.json'
 import Tag from '../components/Tag/Tag'
+import Image from 'next/image'
 
 export default function Projects() {
+
+    projectsData.forEach((e) => {console.log(e.image)})
+
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Mes Projets</h1>
@@ -19,9 +23,11 @@ export default function Projects() {
                         className={styles.card}
                     >
                         <div className={styles.imageWrapper}>
-                            <img 
-                                src={project.image} 
+                            <Image
+                                src={project.image}
                                 alt={project.title}
+                                width={200}
+                                height={100}
                                 className={styles.image}
                             />
                         </div>

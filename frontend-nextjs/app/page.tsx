@@ -5,7 +5,7 @@ export default function Home() {
 
   const techs : string[] = ["Linux", "C", "Java"]
 
-  techs.forEach((val) => {console.log(val)});
+
 
   return (
     <div className={styles.hero}>
