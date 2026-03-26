@@ -7,7 +7,7 @@ export default function Footer ()
       <p>© {new Date().getFullYear()} FX</p>
       <p className={styles.links}>
 
-        <a href="https://github.com/aurelienec" target="_blank">
+        <a href="https://github.com/FXC-ai" target="_blank">
           GitHub
         </a>
         <a href="https://www.linkedin.com/in/john-doe/" target="_blank">

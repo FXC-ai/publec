@@ -4,10 +4,9 @@ import { notFound } from "next/navigation";
 
 export default async function ProjectDetail({ params } : {params : Promise<{ slug: string }>}) {
   const { slug } = await params;
-  // Next.js passe automatiquement le slug dans params
+
   const project = projectsData.find((project) => project.slug === slug);
 
-  // Si le projet n'existe pas, afficher la page 404
   if (!project) {
     notFound();
   }
