@@ -1,0 +1,31 @@
+{
+  "title" : "ft_linux",
+
+  "menu" : [
+    {
+      "id": 0,
+      "title": "Avant propos"
+    },   
+    {
+      "id": 1,
+      "title": "Notions essentielles à connaitre avant de commencer"
+    },    
+    {
+      "id": 2,
+      "title": "Préparation de l’environnement de développement"
+    },    
+    {
+      "id": 3,
+      "title": "Linux From Scratch !"
+    },    
+    {
+      "id": 4,
+      "title": "Grille de tests"
+    },    
+    {
+      "id": 5,
+      "title": "Sources"
+    }
+
+  ]
+}

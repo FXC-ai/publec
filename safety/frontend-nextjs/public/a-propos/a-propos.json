@@ -1,0 +1,70 @@
+{
+    "bio"         : "Après dix ans d'exercice en tant que pharmacien d'officine, j'ai entrepris une reconversion vers le développement informatique à l'École 42 de Lausanne. En mai 2024, j'ai validé le tronc commun du cursus, puis réalisé un an de stage en tant que développeur full-stack chez Atelier Éveil. Je poursuis actuellement les projets de spécialisation de l'école pour obtenir une équivalence bachelor, et je recherche à ce titre un second stage d'au moins six mois.",
+    "experiences" : [
+        {
+            "titre"        : "Mission freelance",
+            "periode"      : ["Février 2026"],
+            "description"  : "Développement d'un pipeline de découpage de texte multi-sources (web, tableur, PDF, Word) pour la préparation de données destinées à des applications RAG.",
+            "etablissement": "Neuralia",
+            "competences"  : ["postgreSQL", "fastAPI", "Nextjs"]
+        },
+        {
+            "titre"        : "Stage développeur full-stack",
+            "periode"      : ["Septembre 2024", "Septembre 2025"],
+            "description"  : "Développement d'un pipeline de données de bout en bout, depuis l'extraction en base jusqu'à la visualisation dans un dashboard interactif.",
+            "etablissement": "Atelier Éveil",
+            "competences"  : ["postgreSQL", "Rust", "D3js"]
+        },
+        {
+            "titre"        : "Pharmacien d'officine",
+            "periode"      : ["2017", "Août 2024"],
+            "description"  : "Dispensation de médicaments, conseils médicaux et validation d'ordonnances.",
+            "etablissement": "Groupe Sunstore / Amavita et BENU en Suisse",
+            "competences"  : ["Pharmacologie", "Relation patient", "Gestion"]
+        },
+        {
+            "titre"        : "Pharmacien d'officine",
+            "periode"      : ["2014", "2017"],
+            "description"  : "Dispensation de médicaments, conseils médicaux et validation d'ordonnances.",
+            "etablissement": "Pharmacies indépendantes en Haute-Savoie",
+            "competences"  : ["Pharmacologie", "Relation patient", "Gestion"]
+        }
+    ],
+    "formations" :
+    [
+        {
+            "titre"        : "Équivalence Bachelor — Application Development",
+            "periode"      : ["Septembre 2025", "En cours..."],
+            "description"  : "Formation proposée par l'École 42 permettant d'obtenir une équivalence bachelor en développement applicatif.",
+            "etablissement": "École 42 Lausanne",
+            "competences"  : ["Devops", "OOP", "Programmation impérative", "Programmation fonctionnelle"]
+        },
+        {
+            "titre"        : "Certificat de validation du tronc commun",
+            "periode"      : ["Septembre 2022", "Juin 2024"],
+            "description"  : "Formation suivie en parallèle d'un emploi de pharmacien, après validation de la piscine d'admission. Tronc commun validé en juin 2024.",
+            "etablissement": "École 42 Lausanne",
+            "competences"  : ["Devops", "OOP", "Programmation impérative", "Programmation fonctionnelle"]
+        },
+        {
+            "titre"        : "Doctorat en Pharmacie",
+            "periode"      : ["2007", "2014"],
+            "description"  : "Formation sanctionnée par un doctorat d'exercice en pharmacie.",
+            "etablissement": "Faculté de Pharmacie de Poitiers",
+            "competences"  : ["Biologie", "Pharmacologie", "Gestion d'entreprise"]
+        }
+
+    ],
+    "photo" : "/a-propos/fcoindre.jpg",
+    "loisirs" : ["Ski de Randonnée", "Course à Pied"],
+    "reseaux" :
+        {
+            "github"   : "https://github.com/FXC-ai",
+            "linkedin" : "https://linkedin.com/in/fxcoindreau"
+        },
+    "cv" :
+        {
+            "anglais"  : "/lien/vers/mon/CV",
+            "francais" : "/lien/vers/mon/CV_anglais"
+        }
+}

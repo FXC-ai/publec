@@ -5,8 +5,6 @@ export default function Home() {
 
   const techs : string[] = ["Linux", "C", "Java"]
 
-
-
   return (
     <div className={styles.hero}>
 

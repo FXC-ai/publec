@@ -14,7 +14,7 @@ export default function Projects() {
             <p className={styles.description}>
                 Découvrez les projets sur lesquels j'ai travaillé
             </p>
-
+            
             <div className={styles.grid}>
                 {projectsData.map((project) => (
                     <Link

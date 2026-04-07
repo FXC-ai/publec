@@ -1,0 +1,26 @@
+{
+  "title" : "ft_linear_regression",
+
+  "menu" : [
+    {
+      "id": 0,
+      "title": "Installations nécessaires au projet"
+    },
+    {
+      "id": 1,
+      "title": "Sujet"
+    },
+    {
+      "id": 2,
+      "title": "Théorie"
+    },
+    {
+      "id": 3,
+      "title": "Le code du projet"
+    },
+    {
+      "id": 4,
+      "title": "Sources"
+    }
+  ]
+}

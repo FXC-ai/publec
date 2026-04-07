@@ -1,0 +1,125 @@
+{
+  "Projets 42" :
+  [
+    {
+      "id": 1,
+      "type" : "42",
+      "slug": "ft_linear_regression",
+      "title": "ft_linear_regression",
+      "shortDescription": "Implémentation d'une régression linéaire simple en Python",
+      "longDescription": "Implémentation d'une régression linéaire simple en Python",
+      "image": "/projets/ft_linear_regression/ft_linear_regression.png",
+      "tags": ["Python", "Mathématiques", "IA"],
+      "github": "https://github.com/votre-username/taskflow",
+      "demo": "https://taskflow-demo.vercel.app",
+      "github_exists" : true,
+      "demo_exists": false,
+      "subject_exists": true,
+      "tutoriel_exists" : true
+    },
+    {
+      "id": 2,
+      "type" : "42",
+      "slug": "ft_malloc",
+      "title": "ft_malloc",
+      "shortDescription": "Implémentation de la fonction malloc",
+      "longDescription": "Ce projet est l'un des projets de spècialisation de l'école 42. Le but du projet est de recoder les fonctions malloc, free et realloc.",
+      "image": "/projets/ft_malloc/ft_malloc.png",
+      "tags": ["C", "Bash"],
+      "github": "https://github.com/votre-username/weather-now",
+      "demo": "https://weather-now-demo.vercel.app",
+      "github_exists" : true,
+      "demo_exists": false,
+      "subject_exists": true,
+      "tutoriel_exists" : true
+
+    },
+    {
+      "id": 3,
+      "type" : "42",
+      "slug": "ft_linux",
+      "title": "ft_linux",
+      "shortDescription": "Linux From Scratch",
+      "longDescription": "Mise en place d'une nouvelle distribution Linux",
+      "image": "/projets/ft_linux/ft_linux.png",
+      "tags": ["Linux", "Bash", "Virtual Box"],
+      "github": "https://github.com/votre-username/portfolio-v1",
+      "demo": "https://portfolio-v1-demo.vercel.app",
+      "github_exists" : true,
+      "demo_exists": false,
+      "subject_exists": true,
+      "tutoriel_exists" : true
+    },
+    {
+      "id": 4,
+      "type" : "42",
+      "slug": "InceptionOfThings",
+      "title": "Inception Of Things",
+      "shortDescription": "Projet d'initiation à Kubernetes",
+      "longDescription": "Mise en place d'un réseau de machine virtuelle et d'un CI CD",
+      "image": "/projets/InceptionOfThings/InceptionOfThings.png",
+      "tags": ["Kubernetes", "Vagrant", "Virtual Box"],
+      "github": "https://github.com/votre-username/recipe-box",
+      "demo": "https://recipe-box-demo.vercel.app",
+      "github_exists" : true,
+      "demo_exists": false,
+      "subject_exists": true,
+      "tutoriel_exists" : true
+    },
+    {
+      "id": 5,
+      "type" : "42",
+      "slug": "AvajLauncher",
+      "title": "AvajLauncher",
+      "shortDescription": "Programme en Java de simulation de communications entre aéronefs",
+      "longDescription": "Programme en Java de simulation de communications entre aéronefs. En cours ...",
+      "image": "/projets/AvajLauncher/avajlauncher.png",
+      "tags": ["Java", "Spring Boot", "UML"],
+      "github": "https://github.com/votre-username/portfolio-v1",
+      "demo": "https://portfolio-v1-demo.vercel.app",
+      "github_exists" : false,
+      "demo_exists": false,
+      "subject_exists": false,
+      "tutoriel_exists" : false
+
+    }
+  ],
+
+  "Projets personnels" :
+  [
+    {
+      "id": 6,
+      "type" : "Projet personnel",
+      "slug": "collectionneur_vignettes",
+      "title": "Problème du collectionneur de vignettes",
+      "shortDescription": "Résolution du problème du collectionneur de vignettes.",
+      "longDescription": "Programme en Python qui résout de manière empirique et de manière analytique le problème du collectionneur de vignettes.",
+      "image": "/projets/collectionneur_vignettes/collectionneur_vignettes.png",
+      "tags": ["Python", "Numpy", "Matplotlib", "Pandas"],
+      "github": "https://github.com/FXC-ai/collectionneur_de_ticket/tree/main",
+      "demo": "https://portfolio-v1-demo.vercel.app",
+      "github_exists" : true,
+      "demo_exists": false,
+      "subject_exists": false,
+      "tutoriel_exists" : true
+    },
+    {
+      "id": 7,
+      "type" : "Projet personnel",
+      "slug": "polatouche",
+      "title": "Site vitrine pour une menuiserie",
+      "shortDescription": "Site mis en ligne pour un ami menuisier",
+      "longDescription": "Site créé pour donner de la visibilité à l'entreprise Polatouche. Site No Code créé avec Wordpress.",
+      "image": "/projets/polatouche/polatouche.jpg",
+      "tags": ["Wordpress"],
+      "github": "https://github.com/FXC-ai/collectionneur_de_ticket/tree/main",
+      "demo": "https://polatouche.org/",
+      "github_exists" : false,
+      "demo_exists": true,
+      "subject_exists": false,
+      "tutoriel_exists" : false
+    }
+  ]
+
+
+}

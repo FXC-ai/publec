@@ -1,0 +1,22 @@
+{
+    "title" : "Accueil",
+    "sub-title" : "Bienvenue dans mon laboratoire. Découvrez mes projets d'exploration de différentes stacks techniques.",
+    "description" :
+    {
+        "Pour les étudiant de l'Ecole 42" : "Tu trouveras ici des tutoriels construits à partir de ma propre expérience sur mes projets de spécialisation. Pas des solutions clés en main, mais des pistes solides pour avancer et vraiment comprendre ce que tu fais.",
+        "Pour les recruteurs" : "Ce portfolio documente mon évolution technique de façon concrète. Si vous recrutez et souhaitez voir comment j'apprends, comment je structure un projet et quelles technologies je maîtrise, vous êtes au bon endroit.",
+        "Pour tout le monde" : "Ce site est aussi un laboratoire que je maintiens activement : explorer de nouvelles stacks, tester des architectures, valider des idées. Ce que vous voyez ici n'est pas figé. Tout est amené à évoluer au fil du temps."
+    
+    }
+        
+,   
+    "techs" : {
+        "Langages" : ["C", "C++", "Python", "Rust", "TypeScript", "Java"],
+        "Devops / SysAdmin" : ["Docker", "Kubernetes", "Git", "Github","Virtual Box", "Linux", "Bash"],
+        "frameworks" : ["Spring Boot", "Django", "FastAPI"],
+        "Frontend" : ["React", "Nextjs", "D3JS", "Shadcdn"],
+        "Base de Données" : ["PostgreSQL"],
+        "Outils de Développement" : ["VS Code", "Jupyter"]
+        
+    }
+}

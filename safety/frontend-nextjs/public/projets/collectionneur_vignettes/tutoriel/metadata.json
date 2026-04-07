@@ -1,0 +1,19 @@
+{
+  "title" : "Problème du collectionneur de vignettes",
+
+  "menu" : [
+    {
+      "id": 0,
+      "title": "PARTIE I : Résolution empirique"
+    },
+    {
+      "id": 1,
+      "title": "PARTIE II : Résolution mathématique"
+    },
+    {
+      "id": 2,
+      "title": "Conclusion"
+    }
+
+  ]
+}
