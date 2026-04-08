@@ -29,5 +29,7 @@
   "Pandas" : "/logos/logo_pandas.png",
   "Numpy" : "/logos/logo_numpy.png",
   "UML" : "/logos/logo_UML.png",
-  "Wordpress" : "/logos/logo_wordpress.png"
+  "Wordpress" : "/logos/logo_wordpress.png",
+  "Shadcn" : "/logos/logo_shadcn.png",
+  "Claude" : "/logos/logo_claude.png"
 }

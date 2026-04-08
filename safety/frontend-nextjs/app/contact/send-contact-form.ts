@@ -30,7 +30,7 @@ export async function sendFormContact (input: ContactFormInputs)
     {
         console.error("Echec de l'envoi du message : ", error)
         return {
-            sucess: false,
+            success: false,
             message : "Une erreur est survenue lors de l'envoi du message."
         }
     }

@@ -1,6 +1,3 @@
-import fs from "fs/promises";
-
-
 import rehypeStringify from 'rehype-stringify'
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkGfm from 'remark-gfm'
@@ -9,23 +6,6 @@ import remarkRehype from 'remark-rehype'
 import {unified} from 'unified'
 import rehypeKatex from 'rehype-katex'
 import remarkMath from 'remark-math'
-
-
-
-export async function importChapterContent (filePath : string)
-{
-  try
-  {
-    // const filePath = path.join(process.cwd(), "public", "projets" ,projet, "tutoriel",`chapitre${chapter}.md`);
-    const source = await fs.readFile(filePath, { encoding: 'utf8' });
-    return source;
-  }
-  catch (error)
-  {
-    if ((error as NodeJS.ErrnoException).code === "ENOENT") return null
-    throw error
-  }
-}
 
 export async function convertMarkdownToHTML (source : string)
 {
@@ -39,5 +19,5 @@ export async function convertMarkdownToHTML (source : string)
                                 .use(rehypeStringify)
                                 .process(source)
 
-    return processedContent;
+  return processedContent;
 }

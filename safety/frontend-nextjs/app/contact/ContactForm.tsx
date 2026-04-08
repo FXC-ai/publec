@@ -2,27 +2,15 @@
 
 import { zodResolver } from "@hookform/resolvers/zod"
 import { Controller, useForm } from "react-hook-form"
-import { useState } from "react"
-
-
+import { useState, useTransition } from "react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Button } from "@/components/ui/button"
 
-import {
-Field,
-FieldDescription,
-FieldError,
-FieldGroup,
-FieldLabel,
-} from "@/components/ui/field"
+import { Field, FieldError, FieldGroup, FieldLabel} from "@/components/ui/field"
+
 import { Input } from "@/components/ui/input"
-import {
-InputGroup,
-InputGroupAddon,
-InputGroupText,
-InputGroupTextarea,
-} from "@/components/ui/input-group"
-import { useTransition } from "react"
+import {InputGroup, InputGroupAddon, InputGroupText, InputGroupTextarea} from "@/components/ui/input-group"
+
 import { sendFormContact } from "./send-contact-form"
 
 
@@ -49,7 +37,6 @@ export default function ContactForm()
 	{
 		startTransition(async () => {
 			const response = await sendFormContact(data);
-			console.log(response);
 
 			if (response.success)
 			{
@@ -63,7 +50,6 @@ export default function ContactForm()
 			}
 		});
 
-		console.log( JSON.stringify(data, null, 2));
 	}
 
 	return (
@@ -95,15 +81,15 @@ export default function ContactForm()
 						control={form.control}
 						render={({ field, fieldState }) => (
 						<Field data-invalid={fieldState.invalid}>
-							<FieldLabel htmlFor="contact-form-title" className="block text-sm font-medium text-foreground mb-1">
+							<FieldLabel htmlFor="contact-form-mail" className="block text-sm font-medium text-foreground mb-1">
 							E-mail
 							</FieldLabel>
 							<Input
 							{...field}
-							id="contact-form-title"
+							id="contact-form-mail"
 							aria-invalid={fieldState.invalid}
 							placeholder="exemple@exemple.ch"
-							autoComplete="off"
+							autoComplete="email"
 							className="w-full"
 							/>
 							{fieldState.invalid && (

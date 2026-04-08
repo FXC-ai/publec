@@ -64,7 +64,7 @@
         },
     "cv" :
         {
-            "anglais"  : "/lien/vers/mon/CV",
-            "francais" : "/lien/vers/mon/CV_anglais"
+            "anglais"  : "/lien/vers/mon/CV_anglais",
+            "francais" : "/lien/vers/mon/CV"
         }
 }

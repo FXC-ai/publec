@@ -14,9 +14,9 @@
         "Langages" : ["C", "C++", "Python", "Rust", "TypeScript", "Java"],
         "Devops / SysAdmin" : ["Docker", "Kubernetes", "Git", "Github","Virtual Box", "Linux", "Bash"],
         "frameworks" : ["Spring Boot", "Django", "FastAPI"],
-        "Frontend" : ["React", "Nextjs", "D3JS", "Shadcdn"],
+        "Frontend" : ["React", "Nextjs", "D3JS", "Shadcn"],
         "Base de Données" : ["PostgreSQL"],
-        "Outils de Développement" : ["VS Code", "Jupyter"]
+        "Outils de Développement" : ["VS Code", "Jupyter", "Claude"]
         
     }
 }

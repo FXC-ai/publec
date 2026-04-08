@@ -1,20 +1,14 @@
-
 import path from "path";
+import fs from "fs/promises";
 
-
-import { importChapterContent, convertMarkdownToHTML } from '@/app/utils/markdown_manager'
-
+import {convertMarkdownToHTML } from '@/app/utils/markdown_manager'
 import projectsData from "@/public/projets/projects.json"
 import { notFound } from 'next/navigation'
-
-
-
-
 import Link from "next/link";
 import { Metadata } from 'next/types'
-
-import { DropdownMenuDemo } from '@/app/components/ButtonMenu/ButtonMenu'
+import { DropdownMenuDemo } from '@/app/projets/[slug]/tutoriel/ButtonMenu'
 import { Button } from "@/components/ui/button";
+
 export async function generateStaticParams() {
   return projectsData.map((p) => ({ slug: p.slug }))
 }
@@ -46,6 +40,21 @@ export function TutoNavigation({ previous, next, isFirst, isLast, projectPage }:
   )
 }
 
+export async function importChapterContent (filePath : string)
+{
+  try
+  {
+
+    const source = await fs.readFile(filePath, { encoding: 'utf8' });
+    return source;
+  }
+  catch (error)
+  {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return null
+    throw error
+  }
+}
+
 async function importMenu(projet:string)
 {
   try
@@ -55,18 +64,11 @@ async function importMenu(projet:string)
   }
   catch (error)
   {
-    console.log(error)
-    if ((error as NodeJS.ErrnoException).code === "ENOENT")
-    {
-      console.error("fichier menu inexistant");
+
       return null;
-    }
-    throw error
+
   }
 }
-
-
-
 
 export default async function Page(
   { 
@@ -82,27 +84,31 @@ export default async function Page(
 {
 
   const { slug } = await params;
-  let { chapter } = await searchParams
+  const { chapter } = await searchParams
 
   const project = projectsData.find((project) => project.slug === slug);
-  const chapterNum = Number(chapter ?? "0");
+  let chapterNum = parseInt(chapter ?? "0", 10);
   
-  if (!project) {
+  if (!project ) {
     notFound();
   }
 
   const metaData = await importMenu(slug)
-  const listChapter = metaData.menu;
+  if (metaData === null)
+  {
+    notFound();
+  }
 
-  if (listChapter == null || listChapter.length === 0)
+  const listChapter = metaData.menu;
+  if (listChapter === null || listChapter.length === 0)
   {
     notFound();
   }
   
 
-  if (!chapter || chapterNum < 0 )
+  if (isNaN(chapterNum) || chapterNum < 0)
   {
-    chapter = "0"
+    chapterNum = 0
   }
 
   if (chapterNum >= listChapter.length)
@@ -110,9 +116,9 @@ export default async function Page(
     notFound();
   }
 
-  const filePath = path.join(process.cwd(), "public", "projets" ,slug, "tutoriel",`chapitre${chapter}.md`);
+  const filePath = path.join(process.cwd(), "public", "projets" ,slug, "tutoriel",`chapitre${String(chapterNum)}.md`);
   const source = await importChapterContent(filePath);
-  if (source == null)
+  if (source === null)
   {
     notFound();
   }
@@ -121,8 +127,8 @@ export default async function Page(
 
   const previous = `/projets/${slug}/tutoriel?chapter=${String(chapterNum - 1)}`
   const next = `/projets/${slug}/tutoriel?chapter=${String(chapterNum + 1)}`
-  const isFirst = chapterNum == 0;
-  const isLast = chapterNum == (listChapter.length - 1)
+  const isFirst = chapterNum === 0;
+  const isLast = chapterNum === (listChapter.length - 1)
   const projectPage = `/projets/${slug}`;
 
   return (

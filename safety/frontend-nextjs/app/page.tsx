@@ -2,39 +2,17 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { GraduationCap, Briefcase, FlaskConical, Sparkles } from "lucide-react"
+import { GraduationCap, Briefcase, FlaskConical } from "lucide-react"
 import data from "@/public/accueil.json"
 import { PageHeader } from './components/PageHeader/PageHeader'
+import listLogos from "@/public/logos/list_logo.json"
 
-const techLogos: Record<string, string> = {
-  "C":           "/logos/a/logo_c.png",
-  "C++":         "/logos/a/logo_cpp.png",
-  "Python":      "/logos/a/logo_python.png",
-  "Rust":        "/logos/a/logo_rust.png",
-  "TypeScript":  "/logos/a/logo_typescript.png",
-  "Java":        "/logos/a/logo_java.png",
-  "Docker":      "/logos/a/logo_docker.png",
-  "Kubernetes":  "/logos/a/logo_kubernetes.png",
-  "Git":         "/logos/a/logo_git.png",
-  "Github":      "/logos/a/logo_github.png",
-  "Virtual Box": "/logos/a/logo_virtualbox.png",
-  "Bash":        "/logos/a/logo_bash.png",
-  "FastAPI":     "/logos/a/logo_fastapi.png",
-  "Spring Boot": "/logos/a/logo_springboot.png",
-  "Django":      "/logos/a/logo_django.png",
-  "React":       "/logos/a/logo_react.png",
-  "Nextjs":      "/logos/a/logo_nextjs.png",
-  "D3JS":        "/logos/a/logo_d3js.png",
-  "PostgreSQL":  "/logos/a/logo_postgresql.png",
-  "VS Code":     "/logos/a/logo_vscode.png",
-  "Jupyter":     "/logos/a/logo_jupyter.png",
-}
 
-const allLogos = Object.entries(techLogos)
+
+const allLogos = Object.entries(listLogos)
 
 function TechCard({ category, techs }: { category: string; techs: string[] }) {
   return (
@@ -51,9 +29,9 @@ function TechCard({ category, techs }: { category: string; techs: string[] }) {
               key={i}
               className="flex items-center gap-1.5 bg-muted/50 rounded-lg px-2 py-1 hover:bg-muted transition-colors"
             >
-              {techLogos[tech] && (
+              {(listLogos as Record<string, string>)[tech] && (
                 <Image
-                  src={techLogos[tech]}
+                  src={(listLogos as Record<string , string>)[tech]}
                   alt={tech}
                   width={16}
                   height={16}

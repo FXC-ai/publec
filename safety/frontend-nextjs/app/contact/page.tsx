@@ -1,5 +1,11 @@
-import ContactForm from '../components/ContactForm/ContactForm'
+import type { Metadata } from "next"
+import ContactForm from './ContactForm'
 import { PageHeader } from '../components/PageHeader/PageHeader'
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Contactez moi pour toute question technique ou proposition professionnelle.",
+}
 
 export default function Contact() {
 

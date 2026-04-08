@@ -5,11 +5,11 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import techLogos from "@/public/logos/list_logo.json"
-
+import fs from "fs/promises";
 import { Metadata } from 'next/types'
 import { PageHeader } from "@/app/components/PageHeader/PageHeader"
-import { Badge } from "@/components/ui/badge"
-import { convertMarkdownToHTML, importChapterContent } from "@/app/utils/markdown_manager"
+
+import { convertMarkdownToHTML } from "@/app/utils/markdown_manager"
 import path from "path"
 
 export async function generateStaticParams() {
@@ -17,28 +17,7 @@ export async function generateStaticParams() {
 }
 
 
-async function getProcessedSubject (projectSubject : boolean, slug : string)
-{
 
-  if (projectSubject == false)
-  {
-    return "";
-  }
-  else
-  {
-    const filePath = path.join(process.cwd(), "public", "projets" ,slug, "subject.md");
-    const source = await importChapterContent(filePath);
-
-    if ( source == null)
-    {
-      return null;
-    }
-
-    const processedContent = convertMarkdownToHTML(source);
-    return processedContent;
-  }
-
-}
 
 export default async function Page(
   {
@@ -53,6 +32,8 @@ export default async function Page(
 )
 {
   const { slug } = await params;
+  const subjectPath = path.join(process.cwd(), "public", "projets" ,slug, "subject.md");
+  let source : string | null = "";
 
   const project = projectsData.find((project) => project.slug === slug);
   if (!project)
@@ -60,11 +41,19 @@ export default async function Page(
     notFound();
   }
 
-  const processedContent = await getProcessedSubject(project.subject_exists, slug);
-  if (processedContent == null)
+  if (project.subject_exists)
   {
-    notFound();
+    try {
+
+      source = await fs.readFile(subjectPath, { encoding: 'utf8' } );
+    }
+    catch (error)
+    {
+      if ((error as NodeJS.ErrnoException).code === "ENOENT") return notFound();
+      throw error
+    }
   }
+
 
   return (
     <div className="max-w-7xl mx-auto px-4 py-8 space-y-8">
@@ -103,7 +92,7 @@ export default async function Page(
         {/* Description */}
         <div>
           <div className="flex items-center gap-3 mb-3">
-            {project.type === "42" && techLogos["42" as keyof typeof techLogos] && (
+            {project.type === "Projets 42" && techLogos["42" as keyof typeof techLogos] && (
               <Image
                 src={techLogos["42" as keyof typeof techLogos]}
                 alt="École 42"
@@ -122,17 +111,17 @@ export default async function Page(
         {/* Actions */}
         <div className="flex flex-wrap gap-3">
           {project.demo_exists && (
-            <Link href={project.demo} target="_blank" rel="noopener noreferrer">
+            <Link href={project.demo} >
               <Button>Tester</Button>
             </Link>
           )}
 
-          {project.tutoriel_exists && <Link href={"/projets/" + slug + "/tutoriel"}>
+          {project.tutoriel_exists && <Link href={`/projets/${slug}/tutoriel`}>
             <Button variant="outline">Tutoriel</Button>
           </Link>}
 
           {project.github_exists &&
-          <Link href={project.github}>
+          <Link href={project.github} target="_blank" rel="noopener noreferrer">
             <Button variant="outline" className="flex items-center gap-2">
               {techLogos["Github" as keyof typeof techLogos] && (
                 <Image
@@ -155,7 +144,7 @@ export default async function Page(
       {project.subject_exists && (
         <div className="rounded-2xl border border-border p-6">
           <h2 className="text-xl font-semibold mb-4">Sujet</h2>
-          <div className="prose-custom" dangerouslySetInnerHTML={{ __html: String(processedContent) }} />
+          <div className="prose-custom" dangerouslySetInnerHTML={{ __html: String(await convertMarkdownToHTML(source)) }} />
         </div>
       )}
 
