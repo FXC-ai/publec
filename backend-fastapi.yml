@@ -1,0 +1,23 @@
+  # backend-fastapi:
+  #   build:
+  #     context: ./backend-fastapi
+  #     dockerfile: Dockerfile
+  #   container_name: backend-fastapi
+
+
+  #   ports:
+  #     - "8000:8000"
+
+  #   volumes:
+  #     - ./backend-fastapi:/backend-fastapi
+
+
+  #   restart: unless-stopped
+
+  #   networks:
+  #     - publec_network
+    # environment:
+      # DATABASE_URL: postgresql+psycopg://neuralia:password@postgres:5432/neuralia_db
+    # depends_on:
+    #   postgres:
+    #     condition: service_healthy

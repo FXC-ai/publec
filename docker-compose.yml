@@ -1,53 +1,4 @@
 services:
-  # db-postgres:
-  #   image: postgres:16-alpine
-  #   container_name: db-postgres
-  #   restart: unless-stopped
-
-  #   environment:
-  #     POSTGRES_USER: admin
-  #     POSTGRES_PASSWORD: password
-  #     POSTGRES_DB: publec_db
-
-  #   ports:
-  #     - "5432:5432"
-
-  #   volumes:
-  #     - postgres_data:/var/lib/postgresql/data
-
-  #   healthcheck:
-  #     test: ["CMD-SHELL", "pg_isready -U admin -d publec_db"]
-  #     interval: 5s
-  #     timeout: 3s
-  #     retries: 10
-
-  #   networks:
-  #     - publec_network
-
-  # pgadmin:
-  #   image: dpage/pgadmin4:latest
-  #   container_name: pgadmin
-
-  #   environment:
-  #     PGADMIN_DEFAULT_EMAIL: admin@pgadmin.com
-  #     PGADMIN_DEFAULT_PASSWORD: password
-  #     PGADMIN_LISTEN_PORT: 80
-
-  #   ports:
-  #     - "5050:80"
-
-  #   volumes:
-  #     - pgadmin_data:/var/lib/pgadmin
-
-  #   depends_on:
-  #     db-postgres:
-  #       condition: service_healthy
-
-  #   restart: unless-stopped
-
-  #   networks:
-  #     - publec_network
-
   traefik:
     image: traefik:v3.6
     container_name: traefik
@@ -92,47 +43,23 @@ services:
       - "--log.level=INFO"
       - "--accesslog=true"
       - "--metrics.prometheus=true"
+    
+    env_file: .env
+
 
     labels:
       # Enable self‑routing
       - "traefik.enable=true"
 
       # Dashboard router
-      - "traefik.http.routers.dashboard.rule=Host(`dashboard.docker.localhost`)"
+      - "traefik.http.routers.dashboard.rule=Host(`${DASHBOARD_TRAEFIK}`)"
       - "traefik.http.routers.dashboard.entrypoints=websecure"
       - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.dashboard.tls=true"
 
       # Basic‑auth middleware
-      # - "traefik.http.middlewares.dashboard-auth.basicauth.users=<PASTE_HASH_HERE>"
-      # - "traefik.http.routers.dashboard.middlewares=dashboard-auth@docker"
-
-
-
-  # backend-fastapi:
-  #   build:
-  #     context: ./backend-fastapi
-  #     dockerfile: Dockerfile
-  #   container_name: backend-fastapi
-
-
-  #   ports:
-  #     - "8000:8000"
-
-  #   volumes:
-  #     - ./backend-fastapi:/backend-fastapi
-
-
-  #   restart: unless-stopped
-
-  #   networks:
-  #     - publec_network
-    # environment:
-      # DATABASE_URL: postgresql+psycopg://neuralia:password@postgres:5432/neuralia_db
-    # depends_on:
-    #   postgres:
-    #     condition: service_healthy
-
+      - "traefik.http.middlewares.dashboard-auth.basicauth.users=${PARSEADMIN}"
+      - "traefik.http.routers.dashboard.middlewares=dashboard-auth@docker"
 
   frontend-nextjs:
     build:
@@ -146,9 +73,11 @@ services:
       - ./frontend-nextjs:/usr/src
       - /usr/src/node_modules
 
+    env_file: .env
+
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`publec.localhost`)"
+      - "traefik.http.routers.whoami.rule=Host(`${DOMAIN}`)"
       - "traefik.http.routers.whoami.entrypoints=websecure"
       - "traefik.http.routers.whoami.tls=true"
     networks:
@@ -157,9 +86,5 @@ services:
 networks:
   publec_network:
     name: publec_network
-
-# volumes:
-#   postgres_data:
-#   pgadmin_data:
 
 
