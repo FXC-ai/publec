@@ -1,38 +1,17 @@
-import ContactForm from '../components/ContactForm/ContactForm'
-import styles from './page.module.css'
+import type { Metadata } from "next"
+import ContactForm from './ContactForm'
+import { PageHeader } from '../components/PageHeader/PageHeader'
+
+export const metadata: Metadata = {
+  title: "Contact",
+  description: "Contactez moi pour toute question technique ou proposition professionnelle.",
+}
 
 export default function Contact() {
 
   return (
-    <div className="container">
-
-      <h1 className="title">Me Contacter</h1>
-      <p className="description">
-        Une question ? Un projet ? N&apos;hésitez pas à me contacter !
-      </p>
-
-      <div className={styles.contactWrapper}>
-        <div className={styles.contactInfo}>
-          <h2>Coordonnées</h2>
-          <div className={styles.infoItem}>
-            <strong>Email :</strong>
-            <a href="mailto:votre@email.com">votre@email.com</a>
-          </div>
-          <div className={styles.infoItem}>
-            <strong>LinkedIn :</strong>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-              Mon profil LinkedIn
-            </a>
-          </div>
-          <div className={styles.infoItem}>
-            <strong>GitHub :</strong>
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer">
-              Mon profil GitHub
-            </a>
-          </div>
-        </div>
-      </div>
-
+    <div >
+      <PageHeader title='Contact' description="Pour toute précision technique concernant mes tutoriels ou pour discuter d'un projet professionnel, vous pouvez m'adresser un message ci-dessous."/>
       <ContactForm  />
 
     </div>
