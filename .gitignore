@@ -2,3 +2,5 @@
 Documentation/
 backend-fastapi
 .codex
+letsencrypt/acme.json
+AGENTS.md

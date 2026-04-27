@@ -15,8 +15,9 @@ services:
 
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./certs:/certs:ro
-      - ./dynamic:/dynamic:ro
+      - ./letsencrypt:/letsencrypt
+      # - ./certs:/certs:ro
+      # - ./dynamic:/dynamic:ro
 
     command:
       # EntryPoints
@@ -25,12 +26,18 @@ services:
       - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
       - "--entrypoints.web.http.redirections.entrypoint.permanent=true"
       - "--entrypoints.websecure.address=:443"
+
+      # Let's Encrypt
       - "--entrypoints.websecure.http.tls=true"
+      - "--certificatesresolvers.letsencrypt.acme.email=${EMAIL}"
+      - "--certificatesresolvers.letsencrypt.acme.storage=/letsencrypt/acme.json"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge=true"
+      - "--certificatesresolvers.letsencrypt.acme.httpchallenge.entrypoint=web"
 
       # Attach the static configuration tls.yaml file that contains the tls configuration settings
-      - "--providers.file.filename=/dynamic/tls.yaml"
+      # - "--providers.file.filename=/dynamic/tls.yaml"
 
-      # Providers 
+      # Docker provider 
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
       - "--providers.docker.network=publec_network"
@@ -56,6 +63,7 @@ services:
       - "traefik.http.routers.dashboard.entrypoints=websecure"
       - "traefik.http.routers.dashboard.service=api@internal"
       - "traefik.http.routers.dashboard.tls=true"
+      - "traefik.http.routers.dashboard.tls.certresolver=letsencrypt"
 
       # Basic‑auth middleware
       - "traefik.http.middlewares.dashboard-auth.basicauth.users=${PARSEADMIN}"
@@ -80,11 +88,11 @@ services:
       - "traefik.http.routers.whoami.rule=Host(`${DOMAIN}`)"
       - "traefik.http.routers.whoami.entrypoints=websecure"
       - "traefik.http.routers.whoami.tls=true"
+      - "traefik.http.routers.whoami.tls.certresolver=letsencrypt"
     networks:
       - publec_network
 
 networks:
   publec_network:
     name: publec_network
-
 
