@@ -1,25 +1,23 @@
-# Sujet
-
-## Chapitre I - Introduction
+# Chapitre I - Introduction
 
 Bienvenue dans **ft_linux**. Dans ce projet, vous devez construire une distribution Linux basique mais fonctionnelle. Ce sujet ne porte **pas sur la programmation du noyau (Kernel)**, mais il y est **étroitement lié**. Cette distribution sera **la base de tous vos projets liés au noyau**, car tout votre code kernel sera exécuté ici, sur votre propre distribution. Essayez d'y implémenter ce que vous voulez ou ce dont vous avez besoin. C'est votre **espace utilisateur** — prenez-en soin !
 
-## Chapitre II - Objectifs
+# Chapitre II - Objectifs
 
 - Construire un noyau Linux
 - Installer plusieurs binaires (voir la liste ci-dessous)
 - Mettre en place une **hiérarchie de système de fichiers conforme aux [standards](https://refspecs.linuxfoundation.org/FHS_3.0/fhs/index.html)**
 - Connecter le système à Internet
 
-## Chapitre III - Instructions générales
+# Chapitre III - Instructions générales
 
-### III.0.1 Ressources
+## III.0.1 Ressources
 
 - [**La Bible**](https://www.linuxfromscratch.org/lfs/view/stable/index.html)
 - **Comment construire un noyau Linux** : il existe en ligne de nombreuses ressources détaillant, étape par étape, la configuration, la compilation et l'exécution d'un noyau Linux personnalisé.
 - [**Autotools**](https://www.gnu.org/software/automake/manual/html_node/index.html#SEC_Contents)
 
-### III.0.2 Instructions
+## III.0.2 Instructions
 
 - Pour ce projet, vous **devez utiliser une machine virtuelle** (par exemple VirtualBox ou VMWare).
 - Bien que **non obligatoire**, il est **vivement recommandé** de lire certains documents de référence dès maintenant et de garder ces standards à l'esprit. Vous ne serez pas noté sur votre conformité totale à ces standards, mais ce sera une **bonne pratique**.
@@ -43,9 +41,9 @@ Bienvenue dans **ft_linux**. Dans ce projet, vous devez construire une distribut
     Adaptez votre configuration de bootloader en conséquence.
     
 
-## Chapitre IV - Partie obligatoire
+# Chapitre IV - Partie obligatoire
 
-### IV.0.1 Paquets à installer
+## IV.0.1 Paquets à installer
 
 Les paquets listés ci-dessous (comme **vim**, **bash**, **grub**, **udev**) ne sont que des **exemples**. Vous pouvez les remplacer par tout équivalent de votre choix et utiliser les **versions** que vous voulez.
 
@@ -191,7 +189,7 @@ Les paquets listés ci-dessous (comme **vim**, **bash**, **grub**, **udev**) ne 
 > À des fins d'évaluation, vous devez également être capable d'installer des paquets, alors assurez-vous d'avoir tout ce dont vous avez besoin.
 > 
 
-## Chapitre V - Partie bonus
+# Chapitre V - Partie bonus
 
 Vous avez un système stable ? Parfait. Maintenant, amusons-nous un peu !
 
@@ -208,7 +206,7 @@ Des points spéciaux seront attribués pour l'installation d'un **serveur X** et
 
 Si vous n'avez pas rempli **toutes** les exigences obligatoires, votre partie bonus ne sera **pas évaluée du tout.**
 
-## Chapitre VI - Rendu et évaluation par les pairs
+# Chapitre VI - Rendu et évaluation par les pairs
 
 Soumettez votre projet dans votre dépôt Git comme d'habitude. Seul le travail présent **dans votre dépôt** sera évalué lors de la soutenance.
 

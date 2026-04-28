@@ -15,8 +15,7 @@ export default function Projects() {
   const set_projects_types = new Set(projectsData.map(p=>p.type))
   const project_types = [...set_projects_types];
   const test = projectsData.filter(e => e.type === "Projets personnels")
-  console.log(test)
-  
+ 
 
   return (
     <div className="relative min-h-screen">
