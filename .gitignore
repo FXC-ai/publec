@@ -4,3 +4,7 @@ backend-fastapi
 .codex
 letsencrypt/acme.json
 AGENTS.md
+frontend-nextjs/node_modules
+frontend-nextjs/.next
+frontend-nextjs/next-env.d.ts
+certs/
