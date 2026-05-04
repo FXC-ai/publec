@@ -59,7 +59,7 @@ export default async function Page(
 
       {/* Cadre image */}
       <div className="rounded-2xl overflow-hidden border border-border shadow-md">
-        <Image loading="eager" width={2816} height={1536} src={project.image} alt={project.title} className="w-full object-cover"/>
+        <Image width={2816} height={1536} src={project.image} alt={project.title} className="w-full object-cover"/>
       </div>
 
       {/* Cadre infos */}
