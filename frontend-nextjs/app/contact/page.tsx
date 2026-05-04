@@ -11,9 +11,8 @@ export default function Contact() {
 
   return (
     <div >
-      <PageHeader title='Contact' description="Pour toute précision technique concernant mes tutoriels ou pour discuter d'un projet professionnel, vous pouvez m'adresser un message ci-dessous."/>
+      <PageHeader title='Contact' description="Pour toute précision technique concernant mes tutoriels ou pour discuter d'un projet professionnel, vous pouvez m'adresser un message ici."/>
       <ContactForm  />
-
     </div>
   )
 }

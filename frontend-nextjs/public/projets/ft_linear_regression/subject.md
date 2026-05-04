@@ -1,4 +1,4 @@
-# Partie obligatoire
+## Partie obligatoire
 
 Vous allez mettre en œuvre une régression linéaire simple avec une seule caractéristique - dans ce cas, le kilométrage de la voiture.
 
@@ -25,7 +25,7 @@ $$
 
 Je vous laisse deviner la valeur de m :) Notez que l'estimatePrice est la même que dans notre premier programme, mais ici elle utilise votre theta0 et theta1 temporaires, calculés en dernier. N'oubliez pas non plus de mettre à jour simultanément theta0 et theta1.
 
-# Bonus
+## Bonus
 
 Voici quelques bonus qui pourraient s'avérer très utiles :
 

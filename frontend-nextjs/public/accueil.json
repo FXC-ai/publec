@@ -11,7 +11,7 @@
         
 ,   
     "techs" : {
-        "Langages" : ["C", "C++", "Python", "Rust", "TypeScript", "Java"],
+        "Langages" : ["C", "C++", "Python", "Rust", "TypeScript", "Java", "Php"],
         "Devops / SysAdmin" : ["Docker", "Kubernetes", "Git", "Github","Virtual Box", "Linux", "Bash"],
         "frameworks" : ["Spring Boot", "Django", "FastAPI"],
         "Frontend" : ["React", "Nextjs", "D3JS", "Shadcn"],

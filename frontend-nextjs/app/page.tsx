@@ -104,12 +104,7 @@ export default function Home() {
 
         {/* Background gradient */}
         <div className="absolute inset-0 -z-10 bg-linear-to-br from-primary/5 via-transparent to-secondary/10" />
-
-        <div className="max-w-7xl mx-auto text-center">
-
-          <PageHeader title={data.title} description={data["sub-title"]} />
-
-        </div>
+        <PageHeader title={data.title} description={data["sub-title"]} />
       </section>
 
       {/* <Separator /> */}

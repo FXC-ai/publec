@@ -8,18 +8,14 @@
     },
     {
       "id": 1,
-      "title": "Sujet"
-    },
-    {
-      "id": 2,
       "title": "Théorie"
     },
     {
-      "id": 3,
+      "id": 2,
       "title": "Le code du projet"
     },
     {
-      "id": 4,
+      "id": 3,
       "title": "Sources"
     }
   ]

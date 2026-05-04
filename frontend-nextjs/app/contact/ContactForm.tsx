@@ -112,7 +112,7 @@ export default function ContactForm()
 								{...field}
 								id="contact-form-message"
 								placeholder="Votre message"
-								rows={6}
+								rows={10}
 								className="min-h-24 resize-none w-full"
 								aria-invalid={fieldState.invalid}
 							/>

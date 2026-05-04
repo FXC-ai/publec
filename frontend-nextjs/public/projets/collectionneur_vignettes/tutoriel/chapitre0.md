@@ -100,7 +100,7 @@ df_nbr_tirage['nbr tirage'].hist(bins=60, figsize=(12,6))
 plt.title('Répartition des collectionneurs selon le nombre de tirages')
 ```
 
-![Répartition des collectionneurs selon le nombre de tirages](/projets/collectionneur_vignettes/assets/RepartitionCollectionneurNbrTirage.png)
+![Répartition des collectionneurs selon le nombre de tirages](/projets/collectionneur_vignettes/tutoriel/assets/RepartitionCollectionneurNbrTirage.png)
 
 ```python
 #Densité des collectionneurs selon le nombre de tirage
@@ -108,4 +108,4 @@ df_nbr_tirage['nbr tirage'].plot.density(figsize = (12,6))
 plt.title('Densité des collectionneurs selon le nombre de tirages')
 ```
 
-![Densité des collectionneurs selon le nombre de tirages](/projets/collectionneur_vignettes/assets/DensiteCollectionneurNbrTirage.png)
+![Densité des collectionneurs selon le nombre de tirages](/projets/collectionneur_vignettes/tutoriel/assets/DensiteCollectionneurNbrTirage.png)

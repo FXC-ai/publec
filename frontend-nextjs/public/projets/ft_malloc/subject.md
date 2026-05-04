@@ -1,4 +1,4 @@
-### Instructions générales
+## Instructions générales
 
 - Ce projet sera corrigé uniquement par des humains. Vous êtes autorisé à organiser et nommer vos fichiers comme vous le souhaitez, mais vous devez respecter les règles suivantes :
 - La bibliothèque doit être nommée **libft_malloc_$HOSTTYPE.so**.
@@ -33,7 +33,7 @@ libft_malloc.so -> libft_malloc_intel-mac.so
 - Vous êtes autorisé à utiliser d’autres fonctions pour la partie bonus, tant que leur utilisation est justifiée lors de votre soutenance. Soyez intelligents !
 - Vous pouvez poser vos questions sur le forum, sur Slack, etc.
 
-### Partie obligatoire
+## Partie obligatoire
 
 Ce mini-projet consiste à écrire une bibliothèque de gestion de la mémoire dynamique.
 
@@ -87,7 +87,7 @@ Total : 52698 bytes
 
 Vous devez également **aligner la mémoire** donnée par votre malloc.
 
-### Partie Bonus
+## Partie Bonus
 
 Voici le premier bonus de ce sujet :
 

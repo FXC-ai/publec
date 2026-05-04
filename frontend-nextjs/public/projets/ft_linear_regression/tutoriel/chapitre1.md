@@ -33,7 +33,7 @@ Le sujet fournit le dataset suivant :
 
 Voici la représentation graphique de ce dataset :
 
-![Figure_2.png](/projets/ft_linear_regression/assets/Figure_2.png)
+![Figure_2.png](/projets/ft_linear_regression/tutoriel/assets/Figure_2.png)
 
 ## Le modèle
 
@@ -73,7 +73,7 @@ Cette fonction ressemble au calcul de la variance. Le résultat est la moyenne d
 
 Il est possible d’en faire une représentation graphique en mettant les valeurs de theta0 en abscisse et les valeurs de theta1 en ordonnée. Le résultat du calcul de la fonction sera sur l’axe z. On obtient le résultat suivant :
 
-![Figure_1.png](/projets/ft_linear_regression/assets/Figure_1.png)
+![Figure_1.png](/projets/ft_linear_regression/tutoriel/assets/Figure_1.png)
 
 N.B. : les valeurs des paramètres sur le graphiques ne correspondent pas à la réalité car elles ont été normalisées. Nous verrons pourquoi plus loin.
 
@@ -113,21 +113,21 @@ Nous pouvons calculer la dérivée de notre fonction de coût terme à terme sel
 $$
 \frac {\partial cost(\theta_0, \theta_1)}{\partial \theta_0} = \frac{1}{m} * \sum\limits_{i=0}^{m-1}2 * \theta_0+2*\theta_1*mileage[i]+0-2*price[i]-0+0
 $$
-
+  
 $$
 \frac {\partial cost(\theta_0, \theta_1)}{\partial \theta_0} = \frac{2}{m} * \sum\limits_{i=0}^{m-1} \theta_0+\theta_1*mileage[i]-price[i]
 $$
-
+  
 $$
 \frac{\partial cost}{\partial \theta_0} =  \frac{2}{m} * \sum\limits_{i=0}^{m-1}estimatePrice(mileage[i]) - price[i]
 $$
-
+  
 Or, le sujet nous impose de mettre à jour nos paramètres a l’aide de la formule suivante :
-
+  
 $$
 tmp\theta_0 = learningRate * \frac{1}{m} * \sum\limits_{i=0}^{m-1}estimate(mileage[i]) - price[i]
 $$
-
+  
 Nous pouvons constater que cela est cohérent car nous retrouvons la formule de notre dérivée précédemment calculée.
 
 ### Dérivée partielle selon theta1

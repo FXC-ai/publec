@@ -8,11 +8,11 @@ Elle repose sur un système de **chunks** (blocs mémoire) organisés en listes 
 
 - une liste pour les blocs **libres :**
     
-    ![Screenshot 2024-07-12 at 14-31-07 Microsoft PowerPoint - 04 Dynamic Memory v6.ppt Compatibility Mode - 04_dynamic_memory_v6.pdf.png](/projets/ft_malloc/tutoriel/tutoriel/assets/e13e6898-a8e1-48eb-8bb3-7de137866517.png)
+    ![Screenshot 2024-07-12 at 14-31-07 Microsoft PowerPoint - 04 Dynamic Memory v6.ppt Compatibility Mode - 04_dynamic_memory_v6.pdf.png](/projets/ft_malloc/tutoriel/assets/e13e6898-a8e1-48eb-8bb3-7de137866517.png)
     
 - une autre pour les blocs **occupés :**
     
-    ![Screenshot 2024-07-12 at 14-30-06 Microsoft PowerPoint - 04 Dynamic Memory v6.ppt Compatibility Mode - 04_dynamic_memory_v6.pdf.png](/projets/ft_malloc/tutoriel/tutoriel/assets/b820f102-1eba-443a-836a-f9775bc038bf.png)
+    ![Screenshot 2024-07-12 at 14-30-06 Microsoft PowerPoint - 04 Dynamic Memory v6.ppt Compatibility Mode - 04_dynamic_memory_v6.pdf.png](/projets/ft_malloc/tutoriel/assets/b820f102-1eba-443a-836a-f9775bc038bf.png)
     
 
 Ce modèle permet une recherche de bloc libre **plus rapide** grâce à des structures adaptées (bins triés par taille, par exemple). C’est une source précieuse pour comprendre comment la gestion mémoire est optimisée dans les implémentations réelles du `malloc` système.

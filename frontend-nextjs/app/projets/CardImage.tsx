@@ -21,12 +21,13 @@ export default function CardImage({ image, title, description, tags, slug }: {
   return (
     <Card className="relative mx-auto w-full pt-0 bg-card/50 backdrop-blur-sm border-border/50 hover:border-primary/50 transition-all duration-300 flex flex-col">
       <Image 
-        width={1600}
-        height={900}
+        width={2816}
+        height={1536}
         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
         src={image}
         alt={title}
         className="w-full object-cover rounded-t-xl aspect-video"
+        loading="eager"
       />
       <CardHeader>
         <CardTitle>{title}</CardTitle>

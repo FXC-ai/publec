@@ -15,12 +15,20 @@ export default function Footer() {
             GitHub
           </a>
           <a
-            href="https://www.linkedin.com/in/john-doe/"
+            href="https://www.linkedin.com/in/fxcoindreau/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
             LinkedIn
+          </a>
+          <a
+            href="https://www.infomaniak.com/fr"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Hébergé chez Infomaniak !
           </a>
         </div>
       </div>

@@ -196,7 +196,3 @@ void *realloc(void *ptr, size_t size);
 - Ne tente pas d’agrandir ou de réduire le bloc « en place »
 - Entraîne une **nouvelle allocation** et une **copie mémoire** à chaque redimensionnement
 - Moins efficace pour des réallocations fréquentes ou sur de gros volumes de données
-
-### Schéma du fonctionnement
-
-### Structure du code

@@ -248,7 +248,7 @@ df_study['variance'] = list_v
 df_study.plot(figsize = (16,8), title = 'Variance et Esperance selon le nombre de bille à collectionner')
 ```
 
-![Variance et Esperance selon le nombre de bille à collectionner](26c5ff3f9eb57106fc46c68343baf79f81dffcfb.png)
+![Variance et Esperance selon le nombre de bille à collectionner](/projets/collectionneur_vignettes/tutoriel/assets/varianceesperance.png)
 
 ```python
 #Tableau du nombre de tirage et de la variance selon le nombre de bille à collectionner
