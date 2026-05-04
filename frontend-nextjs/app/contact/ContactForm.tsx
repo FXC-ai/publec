@@ -19,6 +19,7 @@ import { ContactFormInputs, contactFormSchema } from "./contactFormSchema"
 
 export default function ContactForm()
 {
+	console.log("API_KEY =", process.env.RESEND_API_KEY)
 	const [isSuccess, setIsSuccess] = useState(false);
 
 	const [isSubmitting, startTransition] = useTransition();
